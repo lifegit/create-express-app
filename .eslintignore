@@ -1,0 +1,6 @@
+lambda/
+scripts
+.history
+src/public
+dist
+mock

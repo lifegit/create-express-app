@@ -1,0 +1,16 @@
+[app]
+name = "create-express-app"
+version = 1
+
+[server]
+addr = "127.0.0.1"
+port = 8008
+limit = "20mb"
+prefix = "api"
+
+[jwt]
+secret = "Rfe5lNnO4n3MIEJG"
+expireHour = 120
+
+[db]
+URL = "file:sqlite.db"

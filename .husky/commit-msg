@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+export HUSKY_GIT_PARAMS=".git/COMMIT_EDITMSG"
+
+node_modules/.bin/fabric verify-commit $1

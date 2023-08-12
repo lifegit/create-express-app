@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:sqlite.db"
+}
+
+model User {
+  id       String @id @default(uuid())
+  status   String @default("enable")
+  username String @unique(map: "unique_username")
+  password String
+  nickname String
+  avatar   String
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @default(now()) @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+  Books     Book[]
+
+  @@map("users")
+}
+
+model Book {
+  id        String    @id @default(uuid())
+  status    String    @default("enable")
+  userId    String    @map("user_id")
+  user      User      @relation(fields: [userId], references: [id])
+  name      String
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @default(now()) @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@unique(fields: [userId, name], name: "unique_userid_name")
+  @@map("books")
+}

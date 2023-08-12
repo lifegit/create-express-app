@@ -1,0 +1,1012 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "create-express-app",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "account"
+    },
+    {
+      "name": "book"
+    }
+  ],
+  "paths": {
+    "/account/captcha": {
+      "get": {
+        "summary": "获取验证码",
+        "x-apifox-folder": "account",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["account"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQzM2U2YjdlLTlmZjgtNGUyYS05ZTA5LTk0YTZhYzBkZjlkYiIsInVzZXJuYW1lIjoiMTIzNCIsImlhdCI6MTY5MTgzMzc5OSwiZXhwIjoxNjkyMjY1Nzk5fQ.eAGFONMm4s8v1mj3LZcTwGCLW5mXwaRgPrqNDo2r7BI",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-orders": [],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/2794762/apis/api-84890546-run"
+      }
+    },
+    "/account": {
+      "put": {
+        "summary": "修改",
+        "x-apifox-folder": "account",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["account"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQzM2U2YjdlLTlmZjgtNGUyYS05ZTA5LTk0YTZhYzBkZjlkYiIsInVzZXJuYW1lIjoiMTIzNCIsImlhdCI6MTY5MTgzMzc5OSwiZXhwIjoxNjkyMjY1Nzk5fQ.eAGFONMm4s8v1mj3LZcTwGCLW5mXwaRgPrqNDo2r7BI",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": ["enable", "disabled"],
+                    "x-apifox": {
+                      "enumDescriptions": {
+                        "enable": "可用",
+                        "disabled": "禁止"
+                      }
+                    }
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "如果需要修改密码，需要保证password(新设置密码)和oldPassword都存在"
+                  },
+                  "oldPassword": {
+                    "type": "string"
+                  },
+                  "nickname": {
+                    "type": "string"
+                  }
+                },
+                "x-apifox-refs": {},
+                "x-apifox-orders": [
+                  "status",
+                  "password",
+                  "oldPassword",
+                  "nickname"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-apifox-refs": {
+                    "01H1HHTXEX8A034NF1M4NTC42W": {
+                      "$ref": "#/components/schemas/response",
+                      "x-apifox-overrides": {}
+                    }
+                  },
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/user"
+                    }
+                  },
+                  "required": ["data", "code", "message"],
+                  "x-apifox-orders": ["01H1HHTXEX8A034NF1M4NTC42W", "data"],
+                  "x-apifox-ignore-properties": ["code", "message"]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/2794762/apis/api-84890547-run"
+      },
+      "get": {
+        "summary": "个人信息",
+        "x-apifox-folder": "account",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["account"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQzM2U2YjdlLTlmZjgtNGUyYS05ZTA5LTk0YTZhYzBkZjlkYiIsInVzZXJuYW1lIjoiMTIzNCIsImlhdCI6MTY5MTgzMzc5OSwiZXhwIjoxNjkyMjY1Nzk5fQ.eAGFONMm4s8v1mj3LZcTwGCLW5mXwaRgPrqNDo2r7BI",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/user"
+                    }
+                  },
+                  "x-apifox-orders": ["01H13R4JWDF67ZD00ZMZHWKWAW", "data"],
+                  "required": ["data", "code", "message"],
+                  "x-apifox-refs": {
+                    "01H13R4JWDF67ZD00ZMZHWKWAW": {
+                      "$ref": "#/components/schemas/response",
+                      "x-apifox-overrides": {}
+                    }
+                  },
+                  "x-apifox-ignore-properties": ["code", "message"]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/2794762/apis/api-84890548-run"
+      },
+      "post": {
+        "summary": "新增（新建账户）",
+        "x-apifox-folder": "account",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["account"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQzM2U2YjdlLTlmZjgtNGUyYS05ZTA5LTk0YTZhYzBkZjlkYiIsInVzZXJuYW1lIjoiMTIzNCIsImlhdCI6MTY5MTgzMzc5OSwiZXhwIjoxNjkyMjY1Nzk5fQ.eAGFONMm4s8v1mj3LZcTwGCLW5mXwaRgPrqNDo2r7BI",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "nickname": {
+                    "type": "string"
+                  }
+                },
+                "x-apifox-orders": ["username", "password", "nickname"],
+                "x-apifox-refs": {},
+                "required": ["username", "nickname", "password"],
+                "x-apifox-ignore-properties": []
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/user"
+                    }
+                  },
+                  "x-apifox-orders": ["01H13R4JWDF67ZD00ZMZHWKWAW", "data"],
+                  "required": ["data", "code", "message"],
+                  "x-apifox-refs": {
+                    "01H13R4JWDF67ZD00ZMZHWKWAW": {
+                      "$ref": "#/components/schemas/response",
+                      "x-apifox-overrides": {}
+                    }
+                  },
+                  "x-apifox-ignore-properties": ["code", "message"]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/2794762/apis/api-84890549-run"
+      }
+    },
+    "/account/login": {
+      "post": {
+        "summary": "登录",
+        "x-apifox-folder": "account",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["account"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQzM2U2YjdlLTlmZjgtNGUyYS05ZTA5LTk0YTZhYzBkZjlkYiIsInVzZXJuYW1lIjoiMTIzNCIsImlhdCI6MTY5MTgzMzc5OSwiZXhwIjoxNjkyMjY1Nzk5fQ.eAGFONMm4s8v1mj3LZcTwGCLW5mXwaRgPrqNDo2r7BI",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "code": {
+                    "type": "string",
+                    "description": "验证码内容"
+                  },
+                  "key": {
+                    "type": "string",
+                    "description": "验证码接口返回的 header 中的 captcha-key 字段的值"
+                  }
+                },
+                "x-apifox-orders": ["username", "password", "code", "key"],
+                "x-apifox-refs": {},
+                "required": ["username", "password"],
+                "x-apifox-ignore-properties": []
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apifox-orders": [],
+                      "x-apifox-ignore-properties": []
+                    }
+                  },
+                  "x-apifox-orders": ["01H13R4JWDF67ZD00ZMZHWKWAW", "data"],
+                  "required": ["data", "code", "message"],
+                  "x-apifox-refs": {
+                    "01H13R4JWDF67ZD00ZMZHWKWAW": {
+                      "$ref": "#/components/schemas/response",
+                      "x-apifox-overrides": {}
+                    }
+                  },
+                  "x-apifox-ignore-properties": ["code", "message"]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/2794762/apis/api-84890550-run"
+      }
+    },
+    "/account/avatar": {
+      "post": {
+        "summary": "上传头像",
+        "x-apifox-folder": "account",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["account"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQzM2U2YjdlLTlmZjgtNGUyYS05ZTA5LTk0YTZhYzBkZjlkYiIsInVzZXJuYW1lIjoiMTIzNCIsImlhdCI6MTY5MTgzMzc5OSwiZXhwIjoxNjkyMjY1Nzk5fQ.eAGFONMm4s8v1mj3LZcTwGCLW5mXwaRgPrqNDo2r7BI",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "example": [],
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "avatar": {
+                          "type": "string"
+                        }
+                      },
+                      "x-apifox-refs": {},
+                      "x-apifox-orders": ["avatar"],
+                      "required": ["avatar"],
+                      "x-apifox-ignore-properties": []
+                    }
+                  },
+                  "x-apifox-orders": ["01H13R4JWDF67ZD00ZMZHWKWAW", "data"],
+                  "required": ["data", "code", "message"],
+                  "x-apifox-refs": {
+                    "01H13R4JWDF67ZD00ZMZHWKWAW": {
+                      "$ref": "#/components/schemas/response",
+                      "x-apifox-overrides": {}
+                    }
+                  },
+                  "x-apifox-ignore-properties": ["code", "message"]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/2794762/apis/api-84890551-run"
+      }
+    },
+    "/books": {
+      "get": {
+        "summary": "列表",
+        "x-apifox-folder": "book",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["book"],
+        "parameters": [
+          {
+            "name": "keyword",
+            "in": "query",
+            "description": "搜索",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "current",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "20",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQzM2U2YjdlLTlmZjgtNGUyYS05ZTA5LTk0YTZhYzBkZjlkYiIsInVzZXJuYW1lIjoiMTIzNCIsImlhdCI6MTY5MTgzMzc5OSwiZXhwIjoxNjkyMjY1Nzk5fQ.eAGFONMm4s8v1mj3LZcTwGCLW5mXwaRgPrqNDo2r7BI",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-apifox-refs": {
+                    "01H7MJNXW73A37XQT31SEGQNAB": {
+                      "$ref": "#/components/schemas/response",
+                      "x-apifox-overrides": {}
+                    }
+                  },
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "x-apifox-refs": {
+                        "01H7MJQC0F3FRV7G545RY0E0TE": {
+                          "$ref": "#/components/schemas/page",
+                          "x-apifox-overrides": {}
+                        }
+                      },
+                      "properties": {
+                        "current": {
+                          "type": "integer"
+                        },
+                        "pageSize": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        },
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/book"
+                          }
+                        }
+                      },
+                      "required": ["data", "current", "pageSize", "total"],
+                      "x-apifox-orders": ["01H7MJQC0F3FRV7G545RY0E0TE", "data"],
+                      "x-apifox-ignore-properties": [
+                        "current",
+                        "pageSize",
+                        "total"
+                      ]
+                    }
+                  },
+                  "required": ["data", "code", "message"],
+                  "x-apifox-orders": ["01H7MJNXW73A37XQT31SEGQNAB", "data"],
+                  "x-apifox-ignore-properties": ["code", "message"]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/2794762/apis/api-84890631-run"
+      },
+      "post": {
+        "summary": "新增",
+        "x-apifox-folder": "book",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["book"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQzM2U2YjdlLTlmZjgtNGUyYS05ZTA5LTk0YTZhYzBkZjlkYiIsInVzZXJuYW1lIjoiMTIzNCIsImlhdCI6MTY5MTgzMzc5OSwiZXhwIjoxNjkyMjY1Nzk5fQ.eAGFONMm4s8v1mj3LZcTwGCLW5mXwaRgPrqNDo2r7BI",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "x-apifox-orders": ["status", "name"],
+                "x-apifox-refs": {},
+                "required": ["status", "name"],
+                "x-apifox-ignore-properties": []
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/book"
+                    }
+                  },
+                  "x-apifox-orders": ["01H13R4JWDF67ZD00ZMZHWKWAW", "data"],
+                  "required": ["data", "code", "message"],
+                  "x-apifox-refs": {
+                    "01H13R4JWDF67ZD00ZMZHWKWAW": {
+                      "$ref": "#/components/schemas/response",
+                      "x-apifox-overrides": {}
+                    }
+                  },
+                  "x-apifox-ignore-properties": ["code", "message"]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/2794762/apis/api-84891057-run"
+      }
+    },
+    "/books/{id}": {
+      "get": {
+        "summary": "详情",
+        "x-apifox-folder": "book",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["book"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQzM2U2YjdlLTlmZjgtNGUyYS05ZTA5LTk0YTZhYzBkZjlkYiIsInVzZXJuYW1lIjoiMTIzNCIsImlhdCI6MTY5MTgzMzc5OSwiZXhwIjoxNjkyMjY1Nzk5fQ.eAGFONMm4s8v1mj3LZcTwGCLW5mXwaRgPrqNDo2r7BI",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/book"
+                    }
+                  },
+                  "x-apifox-orders": ["01H13R4JWDF67ZD00ZMZHWKWAW", "data"],
+                  "required": ["data", "code", "message"],
+                  "x-apifox-refs": {
+                    "01H13R4JWDF67ZD00ZMZHWKWAW": {
+                      "$ref": "#/components/schemas/response",
+                      "x-apifox-overrides": {}
+                    }
+                  },
+                  "x-apifox-ignore-properties": ["code", "message"]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/2794762/apis/api-84891046-run"
+      },
+      "put": {
+        "summary": "修改",
+        "x-apifox-folder": "book",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["book"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQzM2U2YjdlLTlmZjgtNGUyYS05ZTA5LTk0YTZhYzBkZjlkYiIsInVzZXJuYW1lIjoiMTIzNCIsImlhdCI6MTY5MTgzMzc5OSwiZXhwIjoxNjkyMjY1Nzk5fQ.eAGFONMm4s8v1mj3LZcTwGCLW5mXwaRgPrqNDo2r7BI",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": ["enable", "disabled"],
+                    "x-apifox": {
+                      "enumDescriptions": {
+                        "enable": "可用",
+                        "disabled": "禁止"
+                      }
+                    }
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "x-apifox-refs": {},
+                "x-apifox-orders": ["status", "name"],
+                "x-apifox-ignore-properties": []
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/response"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/2794762/apis/api-84891069-run"
+      },
+      "delete": {
+        "summary": "删除",
+        "x-apifox-folder": "book",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["book"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQzM2U2YjdlLTlmZjgtNGUyYS05ZTA5LTk0YTZhYzBkZjlkYiIsInVzZXJuYW1lIjoiMTIzNCIsImlhdCI6MTY5MTgzMzc5OSwiZXhwIjoxNjkyMjY1Nzk5fQ.eAGFONMm4s8v1mj3LZcTwGCLW5mXwaRgPrqNDo2r7BI",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-orders": ["01H15Q08DJKZDE8KB7XMMFPRFC"],
+                  "x-apifox-refs": {
+                    "01H15Q08DJKZDE8KB7XMMFPRFC": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  },
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/2794762/apis/api-84891950-run"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "book": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["enable", "disabled"],
+            "x-apifox": {
+              "enumDescriptions": {
+                "enable": "可用",
+                "disabled": "禁止"
+              }
+            }
+          },
+          "name": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          },
+          "deleted_at": {
+            "type": "string"
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "status",
+          "name",
+          "01H13RZFRW590PDVJB9YS41GYS"
+        ],
+        "required": [
+          "id",
+          "status",
+          "name",
+          "created_at",
+          "updated_at",
+          "deleted_at"
+        ],
+        "x-apifox-refs": {
+          "01H13RZFRW590PDVJB9YS41GYS": {
+            "$ref": "#/components/schemas/timestampAt3",
+            "x-apifox-overrides": {}
+          }
+        },
+        "x-apifox-folder": "work",
+        "x-apifox-ignore-properties": ["created_at", "updated_at", "deleted_at"]
+      },
+      "timestampAt3": {
+        "type": "object",
+        "properties": {
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          },
+          "deleted_at": {
+            "type": "string"
+          }
+        },
+        "x-apifox-orders": ["created_at", "updated_at", "deleted_at"],
+        "required": ["created_at", "updated_at", "deleted_at"],
+        "x-apifox-folder": "bases",
+        "x-apifox-ignore-properties": []
+      },
+      "response": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object",
+            "properties": {},
+            "x-apifox-orders": [],
+            "x-apifox-ignore-properties": []
+          }
+        },
+        "x-apifox-orders": ["code", "message", "data"],
+        "required": ["code", "message", "data"],
+        "x-apifox-folder": "bases",
+        "x-apifox-ignore-properties": []
+      },
+      "page": {
+        "type": "object",
+        "properties": {
+          "current": {
+            "type": "integer"
+          },
+          "pageSize": {
+            "type": "integer"
+          },
+          "total": {
+            "type": "integer"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "x-apifox-orders": [],
+              "x-apifox-ignore-properties": []
+            }
+          }
+        },
+        "required": ["current", "pageSize", "total", "data"],
+        "x-apifox-orders": ["current", "pageSize", "total", "data"],
+        "x-apifox-folder": "bases",
+        "x-apifox-ignore-properties": []
+      },
+      "user": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["enable", "disabled"],
+            "x-apifox": {
+              "enumDescriptions": {
+                "enable": "可用",
+                "disabled": "禁止"
+              }
+            }
+          },
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "nickname": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string",
+            "description": "头像"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          },
+          "deleted_at": {
+            "type": "string"
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "status",
+          "username",
+          "password",
+          "nickname",
+          "avatar",
+          "01H13RZFRW590PDVJB9YS41GYS"
+        ],
+        "required": [
+          "id",
+          "status",
+          "username",
+          "nickname",
+          "password",
+          "avatar",
+          "created_at",
+          "updated_at",
+          "deleted_at"
+        ],
+        "x-apifox-refs": {
+          "01H13RZFRW590PDVJB9YS41GYS": {
+            "$ref": "#/components/schemas/timestampAt3",
+            "x-apifox-overrides": {}
+          }
+        },
+        "x-apifox-folder": "work",
+        "x-apifox-ignore-properties": ["created_at", "updated_at", "deleted_at"]
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8008/api",
+      "description": "测试环境"
+    }
+  ]
+}
