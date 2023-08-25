@@ -18,12 +18,8 @@ type AppConfig = {
     expireHour: number;
   };
   db: {
-    provider: string;
-    URL: string;
+    url: string;
     errorFormat: string;
-  };
-  engine: {
-    BASE_URL: string;
   };
 };
 

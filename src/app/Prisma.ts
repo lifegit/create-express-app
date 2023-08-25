@@ -12,7 +12,7 @@ const getInstance = () => {
     errorFormat: conf.db.errorFormat as Prisma.ErrorFormat,
     datasources: {
       db: {
-        url: conf.db.URL,
+        url: conf.db.url,
       },
     },
   });
