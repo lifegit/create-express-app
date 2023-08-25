@@ -82,7 +82,7 @@ const getInstance = () => {
       dev ? err.stack : undefined,
       err.message,
     );
-    res.status(err.httpCode ?? 500).json(errMsg);
+    res.status(err.httpCode ?? 200).json(errMsg);
   });
 
   // 3. listen
