@@ -69,13 +69,19 @@ export class BookController {
   ) {
     const { id: userId } = getUserToken(request);
     const { status, name } = data;
-    const result = prisma.book.create({
-      data: {
-        userId,
-        status,
-        name,
-      },
-    });
+    const result = prisma.book
+      .create({
+        data: {
+          userId,
+          status,
+          name,
+        },
+      })
+      .catch((err) => {
+        throw err.code === 'P2002'
+          ? new Error('book name already exists.')
+          : err;
+      });
 
     return Reply.promise(result);
   }
