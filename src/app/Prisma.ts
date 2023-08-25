@@ -1,5 +1,5 @@
 import { conf } from '@/app/Conf';
-import { PrismaClient } from '@prisma/client';
+import { Prisma, PrismaClient } from '@prisma/client';
 
 let prisma: PrismaClient;
 const setUp = () => {
@@ -9,6 +9,7 @@ const setUp = () => {
 
 const getInstance = () => {
   const prisma = new PrismaClient({
+    errorFormat: conf.db.errorFormat as Prisma.ErrorFormat,
     datasources: {
       db: {
         url: conf.db.URL,

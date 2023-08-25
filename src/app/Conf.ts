@@ -20,6 +20,7 @@ type AppConfig = {
   db: {
     provider: string;
     URL: string;
+    errorFormat: string;
   };
   engine: {
     BASE_URL: string;

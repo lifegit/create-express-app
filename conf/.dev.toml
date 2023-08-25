@@ -14,3 +14,5 @@ expireHour = 120
 
 [db]
 URL = "file:sqlite.db"
+# https://www.prisma.io/docs/concepts/components/prisma-client/working-with-prismaclient/error-formatting
+errorFormat = "minimal"
